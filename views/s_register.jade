@@ -1,0 +1,215 @@
+doctype html
+html(lang='en', xmlns='http://www.w3.org/1999/xhtml')
+	head
+		meta(charset='utf-8')
+		title Student Registration Page
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
+		link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+		link(href='./assets/img/brand/favicon.png', rel='icon', type='image/png')
+		style.
+			.navbar {
+			background-color: #B6C5C0;
+			}
+			.page-footer {
+			background-color: #9CA5A2;
+			}
+			.page-footer a {
+			color: white;
+			}
+			.page-footer a:hover {
+			color: royalblue;
+			text-decoration: none;
+			}
+			.container
+			{
+			top: 10px;
+			right: 50px;
+			left: 50px;
+			position: relative;
+			width: 67%;
+			}
+			input
+			{
+			display: inline-block;
+			}
+			body
+			{
+			height:100%;
+			width: 100%;
+			overflow-x: hidden;
+			background-color: rgba(0, 0, 0, .5);
+			background: linear-gradient(to right, #ffffff,#ffffff);
+			}
+			h1,h2
+			{
+			color: #BC8F8F;
+			font-family: Bookman Old Style;
+			}
+			label
+			{
+			color: #696969
+			}
+			.button,.button:hover {
+			background-color: rgb(192, 212, 216) ;
+			border: none;
+			color: rgb(49, 41, 41);
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+			}
+			.form-control
+			{
+			border-style: hidden  hidden solid ;
+			border-radius: 0;
+			}
+			.form-control:focus,input:focus
+			{
+			outline: none;
+			}
+			.btn {
+			width: 80px;
+			}
+		script(type='text/javascript').
+			function validateForm()
+			{
+			var s_nid = document.getElementById('s_nid').value;
+			var s_did = document.getElementById('s_did').value;
+			var s_pgid = document.getElementById('s_pgid').value;
+			var s_smid = document.getElementById('s_smid').value;
+			var s_btid = document.getElementById('s_btid').value;
+			var s_cid = document.getElementById('s_cid').value;
+			var s_enid = document.getElementById('s_enid').value;
+			var s_eid = document.getElementById('s_eid').value;
+			var s_pid = document.getElementById('s_pid').value;
+			var name = /^[-+]?[0-9]+$/;
+			if(s_nid =='' || s_did == ''||s_pgid == ''||s_smid == ''||s_btid == ''||s_cid == ''||s_enid == ''||s_eid == ''||s_pid == ''){
+			alert("All fields are required...");
+			return false;
+			}
+			else if(4 > s_btid.length || s_btid.length > 4 ){
+			alert("batch year length should be 4 character...");
+			return false;
+			}
+			else if(11 > s_enid.length || s_enid.length > 11 ){
+			alert("Enrollment ID length should be 11 Characters...");
+			return false;
+			}
+			else if(6 > s_pid.length || s_pid.length > 15 ){
+			alert("Password length should be in between 6 to 14 Characters...");
+			return false;
+			}
+			else if(1 > s_smid.length || s_smid.length > 1 ){
+			alert("Semester length should be 1 character...");
+			return false;
+			}
+			else if(10 > s_cid.length || s_cid.length > 10 ){
+			alert("Contact length should be 10 character...");
+			return false;
+			}
+			else{
+			return true;
+			}
+			}
+			function letteronly(input)
+			{
+			var x = /[^a-z ]/gi;
+			input.value= input.value.replace(x , '');
+			}
+	body
+		nav.navbar.navbar-expand-lg.navbar-light.sticky-top
+			.navbar-brand
+				a.nav-link(href='#', style='color:black')
+					span.fa.fa-graduation-cap.mr-3(style='font-size:70px')
+			button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarText', aria-controls='navbarText', aria-expanded='false', aria-label='Toggle navigation')
+				span.navbar-toggler-icon
+			#navbarText.collapse.navbar-collapse
+				ul.navbar-nav.mr-auto
+					li.nav-item
+						a.nav-link(href='/admin/option/')
+							span.fa.fa-home.mr-3(style='font-size:30px')
+							span.sr-only (current)
+					li.nav-item
+						a.nav-link(href='/admin/t_register')
+							span.fa.fa-user.mr-3(style='font-size:30px')
+					//
+						<li class="nav-item">
+						<a class="nav-link" href="#">REGISTER</a>
+						</li>
+					li.nav-item.dropdown
+						a#navbarDropdown.nav-link.mr-3(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+			.col-auto
+				form.form-inline.my-2.my-lg-0(method='GET')
+					input.form-control.mr-sm-2(type='search', placeholder='Search..', aria-label='Search')
+					button.btn.btn-outline-success.my-2.my-sm-0(type='submit')
+						i.fa.fa-search
+		.container.border.border-light.mt-3.mb-3
+			h2(style='text-align:center;')  Student Registration 
+			br
+			form(name='myForm', action='/admin/s_register', onsubmit='return validateForm()', method='post')
+				.form-group.text-center
+					input#s_nid.form-control(type='text', placeholder=' Enter Name' name= 's_name')
+					br
+					input#s_did.form-control(type='date', placeholder='  Enter Date of Birth' name= 's_db')
+					br
+					input#s_pgid.form-control(type='text', placeholder=' Enter Programme' name= 's_pg')
+					br
+					input#s_smid.form-control(type='number', placeholder=' Enter Semester' name= 's_sem')
+					br
+					input#s_btid.form-control(type='text', placeholder='  Enter Batch Year' name= 's_bat')
+					br
+					input#s_cid.form-control(type='number', placeholder='  Enter Contact No.' name= 's_con')
+					br
+					input#s_enid.form-control(type='number', placeholder='  Enter Enrollment ID' name= 's_eid')
+					br
+					input#s_eid.form-control(type='text', placeholder='  Enter Email' name= 's_mail')
+					br
+					input#s_pid.form-control(type='password', placeholder='  Enter password' name= 's_pass')
+					br
+					select(name="gender")
+						option(value="" disabled selected) Gender
+						option(value="Male") Male
+						option(value="Female") Female
+					br
+					br
+					.text-center
+						input.btn.btn-basic(type='submit', value='Register', button='')
+						input.btn.btn-basic(type='reset', style='margin-left: 30px; padding : initial 10px', value='Reset', button='')
+		// Footer
+		footer.page-footer.font-small.blue.pt-3
+			.row
+				.col-sm-3.mb-sm-1.text-center.mr-auto.ml-sm-2
+					// Links
+					h5.text-uppercase Links
+					div
+						ul.list-unstyled
+							li
+								a(href='#!') Announcements
+							li
+								a(href='#!') ABOUT US
+				.col-sm-3.text-center.ml-auto.mr-sm-2
+					h5.text-uppercase.text-center Contact Us
+					// Facebook
+					a.fb-ic(href='#!')
+						span.fa.fa-facebook.mr-3  
+					// Twitter
+					a.tw-ic(href='')
+						span.fa.fa-twitter.white-text.mr-3  
+					// Google +
+					a.gplus-ic(href='')
+						span.fa.fa-google.white-text.mr-3  
+					// Linkedin
+					a.li-ic(href='#')
+						span.fa.fa-linkedin.white-text.mr-3  
+			// Footer Links
+			// Copyright
+			.footer-copyright.text-center
+				| © 2019-Copyright:
+				a(href='#')  ipuattendance.com
+			// Copyright
+		script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1', crossorigin='anonymous')
+		script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin='anonymous')

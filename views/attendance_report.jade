@@ -1,0 +1,168 @@
+doctype html
+html(lang='en', xmlns='http://www.w3.org/1999/xhtml')
+	head
+		meta(charset='utf-8')
+		title Student Attendance 
+		meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
+		link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+		link(href='./assets/img/brand/favicon.png', rel='icon', type='image/png')
+		style.
+			.navbar {
+			background-color: #B6C5C0;
+			}
+			.page-footer {
+			background-color: #9CA5A2;
+			}
+			.page-footer a {
+			color: white;
+			}
+			.page-footer a:hover {
+			color: royalblue;
+			text-decoration: none;
+			}
+			.container
+			{
+			top: 10px;
+			right: 50px;
+			left: 50px;
+			position: relative;
+			width: 75%;
+			}
+			input
+			{
+			display: inline-block;
+			}
+			body
+			{
+			height:100%;
+			width: 100%;
+			overflow-x: hidden;
+			background: linear-gradient(to right, #ffffff,#ffffff);
+			}
+			h1,h2
+			{
+			color: #BC8F8F;
+			font-family: Bookman Old Style;
+			}
+			label
+			{
+			color: #696969
+			}
+			.button,.button:hover {
+			background-color: rgb(192, 212, 216) ;
+			border: none;
+			color: rgb(49, 41, 41);
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+			}
+			.form-control
+			{
+			border-style: hidden  hidden solid ;
+			border-radius: 0;
+			}
+			.form-control:focus,input:focus
+			{
+			outline: none;
+			}
+			.btn {
+			width: 80px;
+			}
+	body
+		nav.navbar.navbar-expand-xl.navbar-light.sticky-top
+			.navbar-brand
+				a.nav-link(href='#', style='color:black;')
+					span.fa.fa-graduation-cap.mr-sm-1(style='font-size:70px;')
+			button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarText', aria-controls='navbarText', aria-expanded='false', aria-label='Toggle navigation')
+				span.navbar-toggler-icon
+			#navbarText.collapse.navbar-collapse
+				ul.navbar-nav.mr-auto
+					li.nav-item
+						a.nav-link(href='#')
+							span.fa.fa-home.mr-3(style='font-size:30px;')
+							span.sr-only (current)
+					li.nav-item
+						a.nav-link(href='#')
+							span.fa.fa-user.mr-3(style='font-size:30px;')
+					//
+						<li class="nav-item">
+						<a class="nav-link" href="#">REGISTER</a>
+						</li>
+					li.nav-item.dropdown
+						a#navbarDropdown.nav-link.mr-3(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+							span.fa.fa-chevron-down(style='font-size:30px;')
+						.dropdown-menu(aria-labelledby='navbarDropdown')
+							//- a.dropdown-item(href='/admin/s_register') Register Student Profile
+							//- a.dropdown-item(href='/admin/t_register') Register Teacher Profile
+							//- a.dropdown-item(href='./attendance_report')  Attendance Report
+							a.dropdown-item(href='./student_report')  Student Report
+							a.dropdown-item(href='./teacher_report')  Teacher Report
+				.form-group.row
+					.col-xs-3.mr-lg-2
+						form.form-inline
+							input.form-control.mr-sm-1(type='search', placeholder='Search..', aria-label='Search')
+							button.btn.btn-outline-success.mr-sm-1.my-sm-0(type='submit')
+								i.fa.fa-search
+		.container.border.border-light.mt-3.mb-4
+			h1(style='text-align:center;') Attendance Report
+			br
+			
+			.table-striped 
+				// Projects table
+				table.table.align-items-center.table-flush
+					thead.thead-light
+						tr
+							th(scope='col') Student Name
+							th(scope='col') Enrollment Number
+							th(scope='col') Programme
+							th(scope='col') Date
+							th(scope='col') Attendance
+					tbody
+						for item in items
+							tr
+								th(scope='row') #{item.name}
+								td #{item.enrollmentId}
+								td  #{item.programme}
+								td  #{item.date}
+								td  #{item.attendance}
+						
+		// Footer
+		footer.page-footer.font-small.blue.pt-3
+			.row
+				.col-sm-3.mb-sm-1.text-center.mr-auto.ml-sm-2
+					// Links
+					h5.text-uppercase Links
+					div
+						ul.list-unstyled
+							li
+								a(href='#!') Announcements
+							li
+								a(href='#!') ABOUT US
+				.col-sm-3.text-center.ml-auto.mr-sm-2
+					h5.text-uppercase.text-center Contact Us
+					// Facebook
+					a.fb-ic(href='#!')
+						span.fa.fa-facebook.mr-3  
+					// Twitter
+					a.tw-ic(href='')
+						span.fa.fa-twitter.white-text.mr-3  
+					// Google +
+					a.gplus-ic(href='')
+						span.fa.fa-google.white-text.mr-3  
+					// Linkedin
+					a.li-ic(href='#')
+						span.fa.fa-linkedin.white-text.mr-3  
+			// Footer Links
+			// Copyright
+			.footer-copyright.text-center
+				| © 2019-Copyright:
+				a(href='#')  ipuattendance.com
+			// Copyright
+		script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1', crossorigin='anonymous')
+		script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin='anonymous')

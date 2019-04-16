@@ -1,0 +1,60 @@
+doctype html
+html(lang='en', xmlns='http://www.w3.org/1999/xhtml')
+	head
+		meta(charset='utf-8')
+		title Index
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
+		link(href='./assets/img/brand/favicon.png', rel='icon', type='image/png')
+		style(type='text/css').
+			body {
+			width: 100%;
+			height: 100%;
+			background-color: rgb(14, 80, 117);
+			background: linear-gradient(to right, #4fdadac2, #031caa);
+			background-image: url('GGSIU_logo.jpg');
+			background-size: cover;
+			}
+			.row {
+			text-align: center;
+			padding-top: 10rem;
+			}
+			.button {
+			background-color: rgb(59, 72, 78);
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+			}
+			.card {
+			text-align: center;
+			background-color: rgb(59, 72, 78);
+			transition: transform .2s;
+			width: 20rem;
+			}
+			.card: hover {
+			transform: scale(1.25);
+			background-color: #2471A3;
+			}
+			a:hover {
+			text-decoration: none;
+			}
+	body
+		.container
+			.row
+				#col_1.col-4.col-sm-4
+					#j1.card
+						a.button(href='./login') ADMIN
+				#col_2.col-4.col-sm-4
+					#j2.card
+						a.button(href='./student_login') STUDENT
+				#col_2.col-4.col-sm-4
+					#j2.card
+						a.button(href='./teacher_login') FACULTY
+		script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1', crossorigin='anonymous')
+		script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin='anonymous')

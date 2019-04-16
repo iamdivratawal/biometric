@@ -1,0 +1,167 @@
+doctype html
+html(lang='en', xmlns='http://www.w3.org/1999/xhtml')
+	head
+		meta(charset='utf-8')
+		title login
+		meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
+		link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+		link(href='./assets/img/brand/favicon.png', rel='icon', type='image/png')
+		style.
+			.body
+			{
+			width: 100%;
+			height: 100%;
+			background-image: url("./landingpage_back.jpg");
+			background-size: cover;
+			}
+			#col_1,#col_2
+			{
+			padding: 360px 110px;
+			border-style: transparent;
+			}
+			.row
+			{
+			width: 100%;
+			height: 100%;
+			}
+			.button {
+			background-color: #2CA0D4 ;
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+			}
+			.jumbotron
+			{
+			text-align: center;
+			height: 500px;
+			width: 400px;
+			padding-top: 400px;
+			transition: transform .2s;
+			}
+			.jumbotron:hover
+			{
+			transform: scale(1.15);
+			}
+			#j1
+			{
+			background-image: url("./admin.jpg");
+			background-size: cover;
+			}
+			#j2
+			{
+			background-image: url("./student.png");
+			background-size: cover;
+			}
+			a:hover
+			{
+			text-decoration: none;
+			}
+		script(type='text/javascript').
+			function validateForm() {
+			var enroll_id = document.getElementById('enroll_id').value;
+			var pass_id = document.getElementById('pass_id').value;
+			if (enroll_id == '' || pass_id == '') {
+			alert("All fields are required...");
+			return false;
+			} else if (11 > enroll_id.length || enroll_id.length > 11) {
+			alert("Enrollment ID length should be 11 Characters...");
+			return false;
+			} else if (5 > pass_id.length || pass_id.length > 15) {
+			alert("Password length should be in between 6 to 14 Characters...");
+			return false;
+			} else {
+			return true;
+			}
+			}
+	body
+		nav.navbar.navbar-expand-xl.navbar-light.sticky-top
+			.navbar-brand
+				a.nav-link(href='#', style='color:black;')
+					span.fa.fa-graduation-cap.mr-sm-1(style='font-size:70px;')
+			button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarText', aria-controls='navbarText', aria-expanded='false', aria-label='Toggle navigation')
+				span.navbar-toggler-icon
+			#navbarText.collapse.navbar-collapse
+				ul.navbar-nav.mr-auto
+					li.nav-item
+						a.nav-link(href='#')
+							span.fa.fa-home.mr-3(style='font-size:30px;')
+							span.sr-only (current)
+					li.nav-item
+						a.nav-link(href='#')
+							span.fa.fa-user.mr-3(style='font-size:30px;')
+					//
+						<li class="nav-item">
+						<a class="nav-link" href="#">REGISTER</a>
+						</li>
+					li.nav-item.dropdown
+						a#navbarDropdown.nav-link.mr-3(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+							span.fa.fa-chevron-down(style='font-size:30px;')
+						.dropdown-menu(aria-labelledby='navbarDropdown')
+							a.dropdown-item(href='#') Action
+							a.dropdown-item(href='#') Another action
+							a.dropdown-item(href='#') Something else here
+				.form-group.row
+					.col-xs-3.mr-lg-2
+						form.form-inline
+							input.form-control.mr-sm-1(type='search', placeholder='Search..', aria-label='Search')
+							button.btn.btn-outline-success.mr-sm-1.my-sm-0(type='submit')
+								i.fa.fa-search
+		.container.border.border-light.mt-3.mb-4
+			h1(style='text-align:center;')  Login 
+			br
+			form(name='myForm', action='./attendance_report', onsubmit='return validateForm()', method='post')
+				.form-group
+					label(for='exampleFormControlInput1') Enrollment No.
+					input#enroll_id.form-control(type='number', name='enroll_id', placeholder='Enrollment ID')
+					br
+					label(for='exampleFormControlInput1') Password
+					input#pass_id.form-control(type='password', name='pass_id', placeholder='password')
+					br
+					input(type='checkbox', value='1')
+					| Remember me
+					.text-center
+						input.btn.mr-40px(type='submit', value='LOGIN')
+					br
+					a(href='') Forgot password?
+		// Footer
+		footer.page-footer.font-small.blue.pt-3
+			.row
+				.col-sm-3.mb-sm-1.text-center.mr-auto.ml-sm-2
+					// Links
+					h5.text-uppercase Links
+					div
+						ul.list-unstyled
+							li
+								a(href='#!') Announcements
+							li
+								a(href='#!') ABOUT US
+				.col-sm-3.text-center.ml-auto.mr-sm-2
+					h5.text-uppercase.text-center Contact Us
+					// Facebook
+					a.fb-ic(href='#!')
+						span.fa.fa-facebook.mr-3  
+					// Twitter
+					a.tw-ic(href='')
+						span.fa.fa-twitter.white-text.mr-3  
+					// Google +
+					a.gplus-ic(href='')
+						span.fa.fa-google.white-text.mr-3  
+					// Linkedin
+					a.li-ic(href='#')
+						span.fa.fa-linkedin.white-text.mr-3  
+			// Footer Links
+			// Copyright
+			.footer-copyright.text-center
+				| © 2019-Copyright:
+				a(href='#')  ipuattendance.com
+			// Copyright
+		script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1', crossorigin='anonymous')
+		script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin='anonymous')

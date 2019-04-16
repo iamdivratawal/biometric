@@ -1,0 +1,114 @@
+html
+	head
+		title OPTION
+		meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+		// stylesheet
+		style.
+			.navbar {
+			background-color:  linear-gradient(to right, #808080, #000000, #808080);
+			}
+			body {
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(to right, #808080, #000000, #808080);
+			background-size: cover;
+			}
+			.page-footer {
+			background-color: linear-gradient(to right, #808080, #000000, #808080);
+			height: 150px;
+			}
+			.page-footer a {
+			color: white;
+			}
+			.page-footer a:hover {
+			color: #303030;
+			text-decoration: none;
+			}
+			.container
+			{
+			text-align: center;
+			padding-top: 5rem;
+			}
+			.card:hover
+			{
+			transform: scale(1.15);
+			}
+			a:hover
+			{
+			text-decoration: none;
+			color: white;
+			}
+			.container a {
+			background-color: #2CA0D4 ;
+			width: 20rem;
+			border: none;
+			color: rgb(59, 47, 129);
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			cursor: pointer;
+			transition-duration : 0.5s;
+			}
+			.container a:hover
+			{
+			text-decoration: none;
+			}
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
+		link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+		link(href='./assets/img/brand/favicon.png', rel='icon', type='image/png')
+	body
+		// navbar
+		nav.navbar.navbar-expand-lg.navbar-light
+			a.navbar-brand(href='#') WELCOME
+			#navbarSupportedContent.collapse.navbar-collapse
+				ul.navbar-nav.mr-auto
+					li.nav-item.active
+						a.nav-link(href='/admin/option/')
+							span.fa.fa-home.mr-3(style='font-size:30px;')
+							span.sr-only (current)
+		// container
+		.container(style='margin-top: 30px')
+			.row
+				#col_1.col-4.col-sm-4
+					a#j1.card.bg-danger.text-white(href='/student/student_report/') Student
+				#col_2.col-4.col-sm-4
+					a#j2.card.bg-warning.text-white(href='/student/attendance_report/') Attendance
+				#col_2.col-4.col-sm-4
+					a#j3.card.bg-success.text-white(href='/student/teacher_report/') Teacher
+		// Footer
+		footer.page-footer.font-small.fixed-bottom.blue.pt-3
+			.row
+				.col-sm-3.mb-sm-1.text-center.mr-auto.ml-sm-2
+					// Links
+					h5.text-uppercase Links
+					div
+						ul.list-unstyled
+							li
+								a(href='#!') Announcements
+							li
+								a(href='#!') ABOUT US
+				.col-sm-3.text-center.ml-auto.mr-sm-2
+					h5.text-uppercase.text-center Contact Us
+					// Facebook
+					a.fb-ic(href='#!')
+						span.fa.fa-facebook.mr-3  
+					// Twitter
+					a.tw-ic(href='')
+						span.fa.fa-twitter.white-text.mr-3  
+					// Google +
+					a.gplus-ic(href='')
+						span.fa.fa-google.white-text.mr-3  
+					// Linkedin
+					a.li-ic(href='#')
+						span.fa.fa-linkedin.white-text.mr-3  
+			// Footer Links
+			// Copyright
+			.footer-copyright.text-center
+				| © 2019-Copyright:
+				a(href='#')  ipuattendance.com
+			// Copyright
+		script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1', crossorigin='anonymous')
+		script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin='anonymous')

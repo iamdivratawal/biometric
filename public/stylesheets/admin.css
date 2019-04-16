@@ -1,0 +1,47 @@
+﻿
+.navbar {
+            background-color: #B6C5C0;
+		
+        }
+        
+        .page-footer {
+            background-color: #9CA5A2;
+			
+        }
+        .page-footer a {
+            color: white;
+        }
+        .page-footer a:hover {
+            color: royalblue;
+            text-decoration: none;
+        }
+       .container
+		{
+		    
+			top: 10px;
+			right: 50px;
+			left: 50px;
+			position: relative;
+			width: 40%;
+        }	
+		input 
+		{
+			display: inline-block;
+		}
+		body 
+		{
+		    height:100%;
+			width: 100%;
+			overflow-x: hidden;
+			background-color: rgba(0, 0, 0, .5);
+			background: linear-gradient(to right, #ffffff,#ffffff);
+		}
+		h1,h2
+		{
+		color: #BC8F8F;
+		font-family: Bookman Old Style;
+		}
+		label
+		{
+		color: #696969	
+		}

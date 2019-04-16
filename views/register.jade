@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    form(method='POST', action='register')
+        p Email:
+        input(type='email', name='email')
+        br
+        p PW:
+        input(type='password', name='password')
+        br
+        button(type='submit') Register

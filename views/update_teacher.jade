@@ -1,0 +1,202 @@
+doctype html
+html(lang='en', xmlns='http://www.w3.org/1999/xhtml')
+	head
+		meta(charset='utf-8')
+		title Update Teacher 
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
+		link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+		link(href='./assets/img/brand/favicon.png', rel='icon', type='image/png')
+		style.
+			.navbar {
+			background-color: #B6C5C0;
+			}
+			.page-footer {
+			background-color: #9CA5A2;
+			}
+			.page-footer a {
+			color: white;
+			}
+			.page-footer a:hover {
+			color: royalblue;
+			text-decoration: none;
+			}
+			.container
+			{
+			top: 10px;
+			right: 50px;
+			left: 50px;
+			position: relative;
+			width: 67%;
+			}
+			input
+			{
+			display: inline-block;
+			}
+			body
+			{
+			height:100%;
+			width: 100%;
+			overflow-x: hidden;
+			background-color: rgba(0, 0, 0, .5);
+			background: linear-gradient(to right, #ffffff,#ffffff);
+			}
+			h1,h2
+			{
+			color: #BC8F8F;
+			font-family: Bookman Old Style;
+			}
+			label
+			{
+			color: #696969
+			}
+			.button,.button:hover {
+			background-color: rgb(192, 212, 216) ;
+			border: none;
+			color: rgb(49, 41, 41);
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+			}
+			.form-control
+			{
+			border-style: hidden  hidden solid ;
+			border-radius: 0;
+			}
+			.form-control:focus,input:focus
+			{
+			outline: none;
+			}
+			.btn {
+			width: 80px;
+			}
+		script.
+			function validateForm()
+			{
+			var dp_id = document.getElementById('dp_id').value;
+			var q_id = document.getElementById('q_id').value;
+			var sb_id = document.getElementById('sb_id').value;
+			var e_id = document.getElementById('e_id').value;
+			var p_id = document.getElementById('p_id').value;
+			var c_cid = document.getElementById('c_id').value;
+			if(dp_id =='' || q_id == ''||e_id == ''||p_id == ''||c_id == ''){
+			alert("All fields are required...");
+			return false;
+			}
+			else if(10 > c_id.length || c_id.length > 10 )
+			{
+			alert("Contact length should be 10 character...");
+			return false;
+			}
+			else if(6 > p_id.length || p_id.length > 15 )
+			{
+			alert("Password length should be in between 6 to 14 Characters...");
+			return false;
+			}
+			else{
+			return true;
+			}
+			}
+			function letteronly(input)
+			{
+			var x = /[^a-z ]/gi;
+			input.value= input.value.replace(x , '');
+			}
+	body
+		nav.navbar.navbar-expand-lg.navbar-light.sticky-top
+			button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarText', aria-controls='navbarText', aria-expanded='false', aria-label='Toggle navigation')
+				span.navbar-toggler-icon
+			.navbar-brand
+				a.nav-link(href='#', style='color:black')
+					span.fa.fa-graduation-cap.mr-3(style='font-size:70px')
+			#navbarText.collapse.navbar-collapse
+				ul.navbar-nav.mr-auto
+					li.nav-item
+						a.nav-link(href='/admin/option/')
+							span.fa.fa-home.mr-3(style='font-size:30px')
+							span.sr-only (current)
+					li.nav-item
+						a.nav-link(href='#')
+							span.fa.fa-user.mr-3(style='font-size:30px')
+					//
+						<li class="nav-item">
+						<a class="nav-link" href="#">REGISTER</a>
+						</li>
+					li.nav-item.dropdown
+						a#navbarDropdown.nav-link.mr-3(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+							span.fa.fa-chevron-down(style='font-size:30px; ')
+						.dropdown-menu(aria-labelledby='navbarDropdown')
+							a.dropdown-item(href='/admin/attendance') Update Attendance
+							a.dropdown-item(href='/admin/attendance_report') Attendance Report
+			.col-auto
+				form.form-inline.my-2.my-lg-2
+					input.form-control.mr-sm-2(type='search', placeholder='Search..', aria-label='Search')
+					button.btn.btn-outline-success.my-2.my-sm-0.mr-sm-0(type='submit')
+						i.fa.fa-search
+		.container.border.border-light.mt-3.mb-3
+			br
+			h2(style='text-align:center;')  Update Faculty Detail 
+			br
+			form(action='/admin/update_teacher', method='POST')
+				.form-group
+					input#pg_id.form-control(type='text', value=items.id, hidden, name= 'id')
+					br
+					label(for="department") Department
+					input#dp_id.form-control(type='text', value=items.department, name= 'department')
+					br
+					label(for="qualification") Qualification
+					input#q_id.form-control(type='text', value=items.qualification, name= 'qualification')
+					br
+					label(for="subject") Subject
+					input#sb_id.form-control(type='text', value=items.subject, name= 'subject')
+					br
+					label(for="contact") Contact
+					input#c_id.form-control(type='number', value=items.contact, name= 'contact')
+					br
+					label(for="email") Email ID
+					input#e_id.form-control(type='email', value=items.email, name= 'email')
+					br
+					label(for="password") Password
+					input#p_id.form-control(type='password', value=items.password, name= 'password')
+					br
+					.text-center
+						input.btn.btn-basic(type='submit', value='Submit', button='')
+						input.btn.btn-basic(type='reset', style='margin-left: 10px', value='Reset', button='')
+		// Footer
+		footer.page-footer.font-small.blue.pt-3
+			.row
+				.col-sm-3.mb-sm-1.text-center.mx-auto.ml-sm-2
+					// Links
+					h5.text-uppercase Links
+					div
+						ul.list-unstyled
+							li
+								a(href='#!') Announcements
+							li
+								a(href='#!') ABOUT US
+				.col-sm-3.text-center.mx-auto.mr-sm-2
+					h5.text-uppercase.text-center Contact Us
+					// Facebook
+					a.fb-ic(href='#!')
+						span.fa.fa-facebook.mr-3  
+					// Twitter
+					a.tw-ic(href='')
+						span.fa.fa-twitter.white-text.mr-3  
+					// Google +
+					a.gplus-ic(href='')
+						span.fa.fa-google.white-text.mr-3  
+					// Linkedin
+					a.li-ic(href='#')
+						span.fa.fa-linkedin.white-text.mr-3  
+			// Footer Links
+			// Copyright
+			.footer-copyright.text-center
+				| © 2019-Copyright:
+				a(href='#')  ipuattendance.com
+			// Copyright
+		script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1', crossorigin='anonymous')
+		script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin='anonymous')
