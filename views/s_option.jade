@@ -7,6 +7,11 @@ html
 			.navbar {
 			background-color:  linear-gradient(to right, #808080, #000000, #808080);
 			}
+			.navbar a
+			{
+				color: white;
+        
+			}
 			body {
 			width: 100%;
 			height: 100%;
@@ -60,7 +65,7 @@ html
 		link(href='./assets/img/brand/favicon.png', rel='icon', type='image/png')
 	body
 		// navbar
-		nav.navbar.navbar-expand-lg.navbar-light
+		nav.navbar.navbar-expand-lg
 			a.navbar-brand(href='#') WELCOME
 			#navbarSupportedContent.collapse.navbar-collapse
 				ul.navbar-nav.mr-auto
@@ -68,6 +73,11 @@ html
 						a.nav-link(href='/admin/option/')
 							span.fa.fa-home.mr-3(style='font-size:30px;')
 							span.sr-only (current)
+			.row
+					.col-xs-3.mr-lg-4
+						h4(style='color:white') HI! USER 
+							a(href='#')
+								i.fa.fa-power-off(style='font-size:30px;').pl-lg-3					
 		// container
 		.container(style='margin-top: 30px')
 			.row

@@ -7,7 +7,7 @@ html
 			.navbar {
 			background-color:  ##303030	;
 			}
-			 a .navbar-brand
+			.navbar a
 			{
 				color: white;
         
@@ -65,7 +65,7 @@ html
 		link(href='./assets/img/brand/favicon.png', rel='icon', type='image/png')
 	body
 		// navbar
-		nav.navbar.navbar-expand-lg.navbar-light
+		nav.navbar.navbar-expand-lg
 			a.navbar-brand(href='#') WELCOME
 			#navbarSupportedContent.collapse.navbar-collapse
 				ul.navbar-nav.mr-auto
@@ -73,13 +73,18 @@ html
 						a.nav-link(href='/admin/option/')
 							span.fa.fa-home.mr-3(style='font-size:30px;')
 							span.sr-only (current)
+			.row
+					.col-xs-3.mr-lg-4
+						h4(style='color:white') HI! USER 
+							a(href='#')
+								i.fa.fa-power-off(style='font-size:30px;').pl-lg-3				
 		// container
 		.container(style='margin-top: 30px')
 			.row
 				#col_1.col-4.col-sm-4
 					a#j1.card.bg-danger.text-white(href='/admin/s_register/') REGISTER
 				#col_2.col-4.col-sm-4
-					a#j2.card.bg-warning.text-white(href='/admin/attendance/') Attendance
+					a#j2.card.bg-warning.text-white(href='/admin/attendance/') ATTENDANCE
 				#col_2.col-4.col-sm-4
 					a#j3.card.bg-success.text-white(href='/admin/student_report/') VIEW REPORT
 		// Footer
@@ -110,7 +115,7 @@ html
 						span.fa.fa-linkedin.white-text.mr-3  
 			// Footer Links
 			// Copyright
-			.footer-copyright.text-center
+			.footer-copyright(style='color: white;').text-center
 				| © 2019-Copyright:
 				a(href='#')  ipuattendance.com
 			// Copyright
