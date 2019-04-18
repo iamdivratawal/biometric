@@ -28,6 +28,10 @@ exports.register = (req, res, next) => {
 
 exports.login = (req, res, next) => {
     if (req.body.email === "root" && req.body.password === "root") {
+        user= {
+            email: "root"
+        }
+        req.session.user = user;
         res.redirect('/admin/option/')
     }
     else {

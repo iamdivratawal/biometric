@@ -10,6 +10,21 @@ var StudModel = require('../model/student')
 var TeachModel = require('../model/teacher') 
 
 
+function isAuthenticated(req, res, next) {
+  if (req.session.user){
+    if (req.session.user.email == 'root')
+      return next();
+  }
+  res.redirect('/admin/login/');
+}
+
+
+function skipLogin(req, res, next) {
+  if (!req.session.user)
+    return res.redirect('/login/');
+  return res.redirect('/admin/');
+}
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -20,30 +35,28 @@ router.get('/dashboard/', function(req, res, next) {
   res.render('admindash', { title: 'dashboard' });
 });
 
-router.get('/login/', function(req, res, next) {
-  res.render('admin_login', { title: 'Login' });
-});
+router.get('/login/', skipLogin);
 
 router.post('/login/', Admin.login)
 
-router.get('/register/', function(req, res, next) {
+router.get('/register/', isAuthenticated, function(req, res, next) {
   res.render('register', { title: 'Login' });
 });
 
-router.get('/account/', function(req, res, next) {
+router.get('/account/', isAuthenticated, function(req, res, next) {
   res.render('account', { title: 'Account' });
 });
 
-router.post('/register/', Account.register);
+router.post('/register/', isAuthenticated, Account.register);
 
-router.get('/update_student/:id', Attend.getStudentDetails);
+router.get('/update_student/:id', isAuthenticated, Attend.getStudentDetails);
 
-router.post('/update_student/', Attend.updateStudent);
+router.post('/update_student/', isAuthenticated, Attend.updateStudent);
 
 
-router.get('/update_teacher/:id', Teacher.getTeacherDetails);
+router.get('/update_teacher/:id', isAuthenticated, Teacher.getTeacherDetails);
 
-router.post('/update_teacher/', Teacher.updateTeacher);
+router.post('/update_teacher/', isAuthenticated, Teacher.updateTeacher);
 
 router.get('/option/', function(req, res, next) {
   res.render('option', { title: 'Choose' });
@@ -76,27 +89,31 @@ router.get('/attendance_report/', Attend.getAttendance );
 router.get('/attendance_report/attendance_report/', Attend.getAttendance );
 
 
-router.get('/s_register/', function(req, res, next) {
+router.get('/s_register/', isAuthenticated, function(req, res, next) {
   res.render('s_register', { title: 'S_Registeration' });
 });
 
-router.post('/s_register/', Student.setStudent );
+router.post('/s_register/', isAuthenticated, Student.setStudent );
 
 
-router.get('/student_report/', Student.getStudent );
+router.get('/student_report/', isAuthenticated, Student.getStudent );
 
-router.get('/attendance_report/student_report/', Student.getStudent );
+router.get('/attendance_report/student_report/', isAuthenticated, Student.getStudent );
 
 
 
-router.get('/t_register/', function(req, res, next) {
+router.get('/t_register/', isAuthenticated, function(req, res, next) {
   res.render('t_register', { title: 'T_Registeration' });
 });
 
-router.post('/t_register/', Teacher.setTeacher );
+router.post('/t_register/', isAuthenticated, Teacher.setTeacher );
 
+router.get('/logout/', isAuthenticated, function(req, res, next) {
+  req.session.destroy();
+  res.redirect('/');
+});
 
-router.get('/teacher_report/', Teacher.getTeacher );
+router.get('/teacher_report/', isAuthenticated, Teacher.getTeacher );
 router.get('/attendance_report/teacher_report/', Attend.getAttendance );
 
 

@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 mongoose.Promise= global.Promise;
+var expressSession = require('express-session');
 
 
 var indexRouter = require('./routes/index');
@@ -33,6 +34,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(expressSession({
+  secret: 'SlaughterFace',
+  saveUninitialized: false,
+  resave: false
+}));
 
 app.use('/', indexRouter);
 app.use('/admin/', adminRouter);
